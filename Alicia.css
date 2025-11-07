@@ -987,4 +987,17 @@ body {
 }
 .not-loaded * {
   animation-play-state: paused !important;
+
+}
+.name-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 2s ease-in;
+    z-index: 1000;
 }
