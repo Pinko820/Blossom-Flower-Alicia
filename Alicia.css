@@ -987,4 +987,94 @@ body {
 }
 .not-loaded * {
   animation-play-state: paused !important;
+
 }
+.name-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    font-family: 'Arial', sans-serif;
+    animation: birthday-ans 0.9s ease forwards;
+    animation-delay: 1s; /* coincide con la remoción de .not-loaded en Alicia.js */
+    z-index: 1000;
+}
+
+/* Texto de felicitación */
+.birthday-text {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10%);
+  color: #ffffff;
+  font-size: 4vmin;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1500;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6), 0 0 8px rgba(255,230,130,0.25);
+  opacity: 0;
+  animation: birthday-ans 0.9s ease forwards;
+  animation-delay: 1s; /* coincide con la remoción de .not-loaded en Alicia.js */
+  pointer-events: none;
+}
+
+@keyframes birthday-ans {
+  from { opacity: 0; transform: translateX(-50%) translateY(-20%) scale(0.95); filter: blur(0.4vmin); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); filter: blur(0); }
+}
+
+/* ----------------------------- */
+/* Purple theme overrides for flowers */
+/* These rules override the original aqua/green palette to purple tones */
+:root {
+  --flower-dark: #5b2a86; /* deep purple */
+  --flower-mid:  #8a49c4; /* medium purple */
+  --flower-light: #d7b3f0; /* pale lilac */
+  --flower-accent: #b084e6; /* accent */
+}
+
+.flower__leaf {
+  background-color: var(--flower-light) !important;
+  background-image: linear-gradient(to top, var(--flower-dark), var(--flower-light)) !important;
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.12) !important;
+}
+.flower__leaf--4 {
+  background-image: linear-gradient(to top, var(--flower-mid), var(--flower-light)) !important;
+}
+.flower__leafs::after {
+  background-color: var(--flower-accent) !important;
+}
+.flower__white-circle::after {
+  background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), linear-gradient(90deg, #f3e6ff, #e6ccff) !important;
+}
+
+.flower__line {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), linear-gradient(to top, transparent 10%, var(--flower-mid), var(--flower-dark)) !important;
+}
+.flower__line__leaf {
+  background-image: linear-gradient(to top, rgba(138,73,196,0.4), var(--flower-mid)) !important;
+}
+
+/* Leaves / big leaves */
+.flower__g-right .leaf,
+.flower__g-fr .leaf {
+  border-left-color: var(--flower-dark) !important;
+  -webkit-mask-image: linear-gradient(to top, transparent 30%, var(--flower-dark) 60%) !important;
+  mask-image: linear-gradient(to top, transparent 30%, var(--flower-dark) 60%) !important;
+}
+
+.flower__g-front__leaf,
+.flower__g-fr__leaf {
+  background-image: linear-gradient(to bottom left, transparent, var(--dark-color) 98%), linear-gradient(to bottom right, var(--flower-mid) 45%, transparent 50%, transparent) !important;
+  -webkit-mask-image: linear-gradient(135deg, var(--flower-mid) 40%, transparent 50%, transparent) !important;
+  mask-image: linear-gradient(135deg, var(--flower-mid) 40%, transparent 50%, transparent) !important;
+}
+
+/* subtle glow for flower lights to match purple palette */
+.flower__light {
+  box-shadow: 0 0 6px rgba(138,73,196,0.5);
+}
+
